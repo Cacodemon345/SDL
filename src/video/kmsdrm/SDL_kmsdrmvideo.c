@@ -46,11 +46,12 @@
 #include "SDL_kmsdrmdyn.h"
 #include "SDL_kmsdrmvulkan.h"
 #include <sys/stat.h>
+#include <sys/param.h>
 #include <dirent.h>
 #include <poll.h>
 #include <errno.h>
 
-#ifdef __OpenBSD__
+#if defined __OpenBSD__ && OpenBSD < 202105
 #define KMSDRM_DRI_PATH "/dev/"
 #define KMSDRM_DRI_DEVFMT "%sdrm%d"
 #define KMSDRM_DRI_DEVNAME "drm"
